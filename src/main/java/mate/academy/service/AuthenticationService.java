@@ -14,12 +14,7 @@ public class AuthenticationService {
      * Return false in any other cases.
      */
     public boolean login(String email, String password) {
-        // Assuming UserService is a class that manages user data
         User user = UserService.findByEmail(email);
-        if (user.getPassword().equals(password) && user != null) {
-            return true;
-        } else {
-            return false;
-        }
+        return user != null && user.getPassword().equals(password);
     }
 }
